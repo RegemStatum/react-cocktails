@@ -1,0 +1,81 @@
+@use "./abstracts" as *;
+@use "./base" as *;
+@use "./components" as *;
+@use "./layout" as *;
+@use "./pages" as *;
+// @use "./themes/" as *;
+// @use "./vendors/" as *;
+
+// Global styles
+body {
+  background-color: getColor("nt-10");
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Roboto", sans-serif;
+  }
+
+  // xs
+  p {
+    // @include text(100);
+    font-family: "Open Sans", sans-serif;
+  }
+
+  a {
+    // @include text(100);
+    font-family: "Open Sans", sans-serif;
+  }
+
+  // h1 {
+  //   @include text(1000);
+  // }
+
+  // h2 {
+  //   @include text(800);
+  // }
+
+  // h3 {
+  //   @include text(700);
+  // }
+
+  // h4 {
+  //   @include text(600);
+  // }
+
+  // h5 {
+  //   @include text(500);
+  // }
+
+  // @include md {
+  //   p {
+  //     @include text(200);
+  //   }
+
+  //   a {
+  //     @include text(200);
+  //   }
+
+  //   h1 {
+  //     @include text(1100);
+  //   }
+
+  //   h2 {
+  //     @include text(900);
+  //   }
+
+  //   h3 {
+  //     @include text(800);
+  //   }
+
+  //   h4 {
+  //     @include text(700);
+  //   }
+
+  //   h5 {
+  //     @include text(600);
+  //   }
+  // }
+}

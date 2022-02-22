@@ -1,0 +1,12 @@
+@use "../abstracts/" as *;
+
+.nav {
+  &__link {
+    color: getColor("nt-1");
+
+    &:hover,
+    &_highlighted {
+      color: getColor("sp-ble-4");
+    }
+  }
+}

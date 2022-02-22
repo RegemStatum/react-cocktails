@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+
+.container {
+  width: calc(100vw - 2rem);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto;
+
+  @include sm {
+    width: calc(100% - 4rem);
+    margin-left: getMargin(1200);
+    margin-right: getMargin(1200);
+  }
+
+  @include md {
+    width: calc(100% - 4rem);
+    margin-left: getMargin(1200);
+    margin-right: getMargin(1200);
+  }
+}

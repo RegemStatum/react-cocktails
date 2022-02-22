@@ -1,0 +1,74 @@
+@use "./functions" as *;
+@use "./breakpoints" as *;
+
+// getText
+@mixin text($value: 400) {
+  font-size: getFontSize($value);
+  line-height: getLineHeight($value);
+}
+
+// Styling
+@mixin pageMinHeight() {
+  // calc(100vh - headerHeight - footerHeight)
+  min-height: calc(100vh - 0 - 0);
+
+  @include md {
+    min-height: calc(100vh - 0 - 0);
+  }
+
+  @include lg {
+    min-height: calc(100vh - 0 - 0);
+  }
+}
+
+@mixin sectionPadding() {
+  padding: getPadding(1200) 0;
+
+  @include md {
+    padding: getPadding(1400) 0;
+  }
+}
+
+@mixin backgroundImage($path: "") {
+  background-image: url($path);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// box shadows
+@mixin boxShadow1 {
+  box-shadow: 0 1px 3px hsla(0, 0, 0, 0.12), 0 1px 2px hsla(0, 0, 0, 0.24);
+}
+
+@mixin boxShadow2 {
+  box-shadow: 0 3px 6px hsla(0, 0, 0, 0.15), 0 2px 4px hsla(0, 0, 0, 0.12);
+}
+
+@mixin boxShadow3 {
+  box-shadow: 0 10px 20px hsla(0, 0, 0, 0.15), 0 3px 6px hsla(0, 0, 0, 0.1);
+}
+
+@mixin boxShadow4 {
+  box-shadow: 0 15px 25px hsla(0, 0, 0, 0.15), 0 5px 10px hsla(0, 0, 0, 0.05);
+}
+
+@mixin boxShadow5 {
+  box-shadow: 0 20px 40px hsla(0, 0, 0, 0.2);
+}
+
+// border radius
+@mixin borderRadius1 {
+  border-radius: 5px;
+}
+
+// Components
+// buttons
+@mixin btn1 {
+}
+
+@mixin btn2 {
+}
+
+@mixin btn3 {
+}

@@ -1,0 +1,24 @@
+@use "../abstracts/" as *;
+
+$menuWidth: 25px;
+
+.burger-menu {
+  width: $menuWidth;
+  justify-self: flex-end;
+  grid-column: -1;
+  background-color: transparent;
+
+  &__item {
+    position: relative;
+    display: block;
+    width: $menuWidth;
+    height: 2px;
+    background-color: getColor("pr-prl-5");
+    @include borderRadius1;
+    @include boxShadow1;
+
+    &:not(:last-child) {
+      margin-bottom: getMargin(400);
+    }
+  }
+}

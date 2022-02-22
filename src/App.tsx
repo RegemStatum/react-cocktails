@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// sass
+import "./assets/scss/index.scss";
+// react router
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// layout
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+// pages
+import {
+  Home,
+  About,
+  Cocktails,
+  FavouriteCocktails,
+  SingleCocktail,
+  Error,
+} from "./pages";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/cocktails" element={<Cocktails />}></Route>
+        <Route
+          path="/cocktails/:cocktailId"
+          element={<SingleCocktail />}
+        ></Route>
+        <Route path="/favourites" element={<FavouriteCocktails />}></Route>
+
+        <Route path="*" element={<Error />}></Route>
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

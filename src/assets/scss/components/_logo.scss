@@ -1,0 +1,16 @@
+@use "../abstracts/" as *;
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  width: 31px;
+  height: 31px;
+}
