@@ -4,7 +4,7 @@ import { HeroInfo, Pros, Slider, SubscribeForm } from "../components/index";
 
 const Home: FC = () => {
   return (
-    <div className="home-page">
+    <div className="home-page container">
       <HeroInfo />
       <Pros />
       <CocktailCard />

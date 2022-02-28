@@ -1,0 +1,51 @@
+@use "../../abstracts/" as *;
+
+.hero-info {
+  grid-column: 1/-1;
+  max-width: 400px;
+  margin-top: getMargin(800);
+  margin-bottom: getMargin(1600);
+
+  &__heading {
+    font-weight: 400;
+    @include text(600);
+    line-height: 1;
+    color: getColor("nt-3");
+  }
+
+  &__highlight {
+    font-weight: 500;
+    @include text(800);
+    line-height: 1;
+    color: getColor("pr-prl-5");
+    margin-top: calc(-1 * getMargin(700));
+  }
+
+  &__text {
+    margin-top: getMargin(200);
+    @include text(300);
+    line-height: 1.25;
+    color: getColor("nt-4");
+  }
+
+  @include sm {
+    margin-top: getMargin(1600);
+  }
+
+  @include md {
+    max-width: 430px;
+    margin-bottom: getMargin(1800);
+
+    &__heading {
+      @include text(700);
+    }
+
+    &__highlight {
+      @include text(900);
+    }
+
+    &__text {
+      @include text(400);
+    }
+  }
+}
