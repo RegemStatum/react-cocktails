@@ -1,4 +1,51 @@
 @use "../abstracts/" as *;
 
-// .footer {
-// }
+.footer {
+  background: linear-gradient(0deg, #fff, getColor("nt-10"));
+
+  &__links-logo-container,
+  &__info {
+    grid-column: 1/-1;
+  }
+
+  &__container {
+    padding: getPadding(800) 0;
+  }
+
+  &__links-logo-container {
+    display: flex;
+    gap: getMargin(1000);
+    align-items: center;
+    margin-bottom: getMargin(800);
+  }
+
+  &__logo-container {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__logo {
+    width: 21px;
+    height: 21px;
+  }
+
+  &__nav-container {
+    display: flex;
+    gap: getMargin(600);
+  }
+
+  &__nav-link {
+    @include text(300);
+  }
+
+  &__made-by,
+  &__copy {
+    @include text(200);
+    color: getColor("nt-3");
+    line-height: 0.94;
+  }
+
+  &__made-by {
+    padding-bottom: getPadding();
+  }
+}
