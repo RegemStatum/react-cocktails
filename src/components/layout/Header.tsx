@@ -1,7 +1,7 @@
 import React, { FC, useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
 import navLinks from "../../constants/navLinks";
+import Logo from "./Logo";
 
 interface Styles extends React.CSSProperties {
   openMenu: {
@@ -42,9 +42,7 @@ const Header: FC = () => {
     <header className="header">
       <div className="line-separator"></div>
       <div className="header__container container">
-        <Link to="/" className="logo-container header__logo-container">
-          <img className="logo header__logo" src={logo} alt="cocktail" />
-        </Link>
+        <Logo styleName="header" />
         <button
           className="burger-menu header__burger-menu"
           type="button"
