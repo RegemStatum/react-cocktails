@@ -16,6 +16,7 @@
     top: calc(47px + 2 * getPadding(1000));
     overflow: hidden;
     transition: height 0.6s ease-in-out;
+    z-index: 2;
 
     &-container {
       display: flex;

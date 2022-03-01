@@ -1,4 +1,20 @@
 @use "../../abstracts/" as *;
 
 .pros {
+  grid-column: 1/-1;
+  background-color: #fff;
+  overflow: hidden;
+  @include borderRadius1;
+  @include boxShadow3;
+
+  &__item:nth-child(odd) {
+    background-color: getColor("pr-tel-10");
+  }
+
+  &__text {
+    @include text(300);
+    line-height: 0.9;
+    color: getColor("nt-4");
+    padding: getPadding(1000);
+  }
 }

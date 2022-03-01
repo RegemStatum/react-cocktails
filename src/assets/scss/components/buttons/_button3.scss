@@ -1,0 +1,7 @@
+@use "../../abstracts/" as *;
+
+.btn3 {
+  background-color: getColor("pr-prl-8");
+  color: getColor("pr-prl-2");
+  @include btn;
+}

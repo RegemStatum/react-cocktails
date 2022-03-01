@@ -1,4 +1,80 @@
 @use "../../abstracts/" as *;
 
 .subscribe-form {
+  grid-column: 1/-1;
+  padding: getPadding(1000);
+  margin-bottom: getMargin(1200);
+  background-color: #fff;
+  @include borderRadius1;
+  @include boxShadow3;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__heading {
+    padding-bottom: getPadding(1200);
+    font-weight: 400;
+    color: getColor("nt-1");
+    @include text(300);
+
+    @include sm {
+      @include text(400);
+    }
+  }
+
+  &__input-container {
+    position: relative;
+  }
+
+  &__email-input {
+    width: 100%;
+    margin-bottom: getMargin(400);
+    padding: getPadding(800);
+    font-family: "Open Sans", sans-serif;
+    background-color: getColor("nt-10");
+    @include text(300);
+    @include borderRadius1;
+
+    &:focus {
+      outline-color: getColor("nt-4");
+      outline: none;
+    }
+  }
+
+  &__email-label {
+    position: absolute;
+    left: getPadding(800);
+    top: getPadding(800);
+    padding: getPadding(100) getPadding(300);
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: getColor("nt-4");
+    transition: top 50ms linear;
+    @include text(200);
+    @include borderRadius1;
+  }
+
+  &__email-input:focus + &__email-label,
+  &__email-input:not(:valid) + &__email-label {
+    top: -15px;
+    background-color: #fff;
+    border: 1px solid getColor("nt-4");
+  }
+
+  &__succeed {
+    display: block;
+    margin-bottom: getMargin(400);
+    background-color: getColor("pr-tel-9");
+
+    &-text {
+      padding: getPadding(100) getPadding(400);
+      color: getColor("pr-tel-1");
+    }
+
+    &:hide {
+      display: none;
+    }
+  }
 }

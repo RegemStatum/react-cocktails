@@ -14,9 +14,13 @@
 
   &__links-logo-container {
     display: flex;
-    gap: getMargin(1000);
+    gap: getMargin(800);
     align-items: center;
     margin-bottom: getMargin(800);
+
+    @include sm {
+      gap: getMargin(1000);
+    }
   }
 
   &__logo-container {

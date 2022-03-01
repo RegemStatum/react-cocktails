@@ -1,0 +1,19 @@
+@use "../abstracts/" as *;
+
+.info-label {
+  height: auto;
+  width: max-content;
+  @include borderRadius1;
+
+  &__text {
+    display: inline-block;
+    padding: 0 getPadding(100);
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    @include text(200);
+
+    @include md {
+      @include text(300);
+    }
+  }
+}

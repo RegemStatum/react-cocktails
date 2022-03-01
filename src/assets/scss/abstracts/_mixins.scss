@@ -63,12 +63,18 @@
 }
 
 // Components
-// buttons
-@mixin btn1 {
-}
+// button
+@mixin btn {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  padding: getPadding(400) getPadding(1000);
+  text-align: center;
+  cursor: pointer;
+  @include text(300);
+  @include borderRadius1;
+  @include boxShadow2;
 
-@mixin btn2 {
-}
-
-@mixin btn3 {
+  @include md {
+    @include text(400);
+  }
 }
