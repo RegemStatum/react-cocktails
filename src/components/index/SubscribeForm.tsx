@@ -9,6 +9,7 @@ const SubscribeForm: FC = () => {
 
   useEffect(() => {
     setIsLabelShown(true);
+
     if (state.submitting) {
       setEmailInput("");
     }
@@ -41,7 +42,7 @@ const SubscribeForm: FC = () => {
             Enter your email here
           </label>
         </div>
-        {state.succeeded && isLabelShown && (
+        {isLabelShown && (
           <InfoLabel
             text="Thanks for joining!"
             containerClassName="subscribe-form__succeed"
