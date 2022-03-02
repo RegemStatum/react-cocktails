@@ -1,6 +1,12 @@
 import React, { FC } from "react";
 import CocktailCard from "../components/CocktailCard";
-import { HeroInfo, Pros, Slider, SubscribeForm } from "../components/index";
+import {
+  HeroInfo,
+  MoreCocktailsBtn,
+  Pros,
+  Slider,
+  SubscribeForm,
+} from "../components/index";
 import cocktailImg from "../assets/images/DefaultCocktail.jpg";
 
 const cocktailObj = {
@@ -20,6 +26,7 @@ const Home: FC = () => {
       <HeroInfo />
       <Pros />
       <CocktailCard {...cocktailObj} />
+      <MoreCocktailsBtn />
       <Slider />
       <SubscribeForm />
     </div>
