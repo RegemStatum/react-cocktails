@@ -11,13 +11,13 @@ const slides = [
   },
   {
     id: 2,
-    name: "Martini2",
+    name: "Blue paradise",
     text: "The Martini is a cocktail that came onto the scene in multiple places at once, as bartenders began to experiment with gin and dry vermouth. Regardless, no origin story will leave you feeling as blissful and content as you will feel after drinking a classic, well-made Dry Martini.",
     img: cocktailImg2,
   },
   {
     id: 3,
-    name: "Martini3",
+    name: "Rum",
     text: "The Martini is a cocktail that came onto the scene in multiple places at once, as bartenders began to experiment with gin and dry vermouth. Regardless, no origin story will leave you feeling as blissful and content as you will feel after drinking a classic, well-made Dry Martini.",
     img: cocktailImg3,
   },

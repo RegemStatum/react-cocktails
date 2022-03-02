@@ -1,28 +1,92 @@
 @use "../../abstracts/" as *;
 
 .slider {
-  position: relative;
   margin-bottom: getMargin(1000);
+
   grid-column: 1/-1;
-  background-color: #fff;
+  color: #fff;
   overflow: hidden;
+  cursor: grab;
   @include borderRadius1;
   @include boxShadow3;
-  cursor: grab;
 
-  min-height: 500px;
-  background: rgba(0, 0, 0, 0.7);
+  &__slide {
+    padding: getPadding(1200) getPadding(800) getPadding(1700) getPadding(800);
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
 
+    @include sm {
+      padding: getPadding(1300) getPadding(1000) 72px getPadding(1000);
+    }
+  }
+
+  &__dark-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
+
+  &__name,
+  &__text {
+    z-index: 2;
+  }
+
+  &__name {
+    margin-bottom: getMargin(1000);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    @include text(600);
+
+    @include md {
+      @include text(700);
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    @include text(400);
+    line-height: 123%;
+
+    @include md {
+      @include text(500);
+    }
+  }
+
+  // swiper module styles
   .swiper {
+    background-color: getColor("pr-prl-9");
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+
     &-pagination-bullets {
       position: absolute;
-      bottom: 0;
+      bottom: getMargin(1000);
       left: 50%;
       transform: translateX(-50%);
+      height: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: getMargin(200);
+      z-index: 2;
+
+      @include sm {
+        bottom: getMargin(1200);
+      }
     }
 
     &-pagination-bullet {
@@ -35,7 +99,7 @@
         width: 8px;
         height: 8px;
         background-color: getColor("pr-prl-5");
-        box-shadow: inset 0 0 3px #fff;
+        box-shadow: inset 0 0 1px 1px #fff;
       }
     }
   }

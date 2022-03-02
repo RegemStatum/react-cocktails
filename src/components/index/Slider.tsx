@@ -1,25 +1,36 @@
 import React, { FC } from "react";
+// swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
-
 import "swiper/scss";
 
-const slides = [];
+// info
+import slides from "../../constants/slides";
 
 const Slider: FC = () => {
   return (
     <div className="slider">
-      <Swiper
-        modules={[Pagination]}
-        navigation
-        pagination
-        spaceBetween={50}
-        slidesPerView={1}
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+      <Swiper modules={[Pagination]} pagination slidesPerView={1}>
+        {slides.map((slide) => {
+          const { id, name, text, img } = slide;
+          return (
+            <SwiperSlide key={id}>
+              <div
+                className="slider__slide"
+                style={{
+                  backgroundImage: `url(${img})`,
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                }}
+              >
+                <div className="slider__dark-mask"></div>
+                <h5 className="slider__name">{name}</h5>
+                <p className="slider__text">{text}</p>
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
