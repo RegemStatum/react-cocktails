@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 .info-label {
-  height: auto;
+  display: flex;
   width: max-content;
   @include borderRadius1;
 

@@ -20,17 +20,26 @@ const CocktailCard: FC<CocktailCardProps> = ({
       <header className="cocktail-card__header">
         <div className="cocktail-card__header-inner-container">
           <h5 className="cocktail-card__name">{name}</h5>
-          {isAlcoholic && (
+          <div className="cocktail-card__label-like-container">
             <InfoLabel
               text="alcoholic"
-              containerClassName="cocktail-card__label-container"
-              textClassName="cocktail-card__label"
+              containerClassName={`cocktail-card__label-container ${
+                isAlcoholic
+                  ? "cocktail-card__label-container_alcoholic"
+                  : "cocktail-card__label-container_non-alcoholic"
+              }`}
+              textClassName={`cocktail-card__label ${
+                isAlcoholic
+                  ? "cocktail-card__label_alcoholic"
+                  : "cocktail-card__label_non-alcoholic"
+              }`}
             />
-          )}
-          <img src={likeBtn} alt="like" className="cocktail-card__like-btn" />
+            <img src={likeBtn} alt="like" className="cocktail-card__like-btn" />
+          </div>
         </div>
       </header>
       <div className="cocktail-card__ingredients">
+        <p className="cocktail-card__ingredient-title">Ingredients: </p>
         {ingredientsArr.map((ingredient, index) => (
           <div className="cocktail-card__ingredient" key={index}>
             {ingredient}

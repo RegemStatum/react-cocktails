@@ -17,4 +17,40 @@
       padding: getPadding(1000);
     }
   }
+
+  &__label-like-container {
+    display: flex;
+  }
+
+  &__label-container {
+    &_alcoholic {
+      background-color: getColor("sp-ble-9");
+    }
+  }
+
+  &__label {
+    // padding;
+
+    &_alcoholic {
+      color: getColor("sp-ble-1");
+    }
+  }
+
+  &__like-btn {
+    width: 17px;
+    height: 15px;
+  }
+
+  &__name {
+    font-weight: 400;
+    @include text(300);
+
+    @include sm {
+      @include text(400);
+    }
+  }
+
+  &__ingredients {
+    padding: getPadding(1200) getPadding(1000);
+  }
 }
