@@ -44,7 +44,9 @@ const Header: FC = () => {
       <div className="header__container container">
         <Logo styleName="header" />
         <button
-          className="burger-menu header__burger-menu"
+          className={`burger-menu header__burger-menu ${
+            isNavOpen ? "burger-menu_open" : "burger-menu_close"
+          }`}
           type="button"
           onClick={toggleShowMenu}
         >
