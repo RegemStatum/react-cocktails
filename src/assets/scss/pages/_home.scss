@@ -1,0 +1,9 @@
+@use "../abstracts/" as *;
+
+.home-page {
+  &__cocktail-card {
+    @include xmd {
+      grid-column: 5/-1;
+    }
+  }
+}

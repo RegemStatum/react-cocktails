@@ -2,6 +2,7 @@
 
 .subscribe-form {
   grid-column: 1/-1;
+  max-height: 200px;
   padding: getPadding(1000);
   margin-bottom: getMargin(1200);
   background-color: #fff;
@@ -98,5 +99,11 @@
     @include md {
       @include text(300);
     }
+  }
+
+  @include xmd {
+    grid-column: 5/-1;
+    grid-row: 3;
+    margin-top: getMargin(1700);
   }
 }

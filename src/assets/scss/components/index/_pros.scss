@@ -1,6 +1,7 @@
 @use "../../abstracts/" as *;
 
 .pros {
+  max-height: 243px;
   margin-bottom: getMargin(1000);
   grid-column: 1/-1;
   background-color: #fff;
@@ -17,5 +18,12 @@
     line-height: 0.9;
     color: getColor("nt-4");
     padding: getPadding(1000);
+  }
+
+  @include xmd {
+    grid-column: 1/5;
+    grid-row: 2;
+    margin-right: getMargin(800);
+    margin-bottom: getMargin(800);
   }
 }

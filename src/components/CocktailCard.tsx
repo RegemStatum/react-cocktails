@@ -7,6 +7,7 @@ interface CocktailCardProps {
   isAlcoholic: boolean;
   ingredientsArr: Array<string>;
   image: string;
+  cardClassName?: string;
 }
 
 const CocktailCard: FC<CocktailCardProps> = ({
@@ -14,9 +15,10 @@ const CocktailCard: FC<CocktailCardProps> = ({
   isAlcoholic,
   ingredientsArr,
   image,
+  cardClassName = "",
 }) => {
   return (
-    <div className="cocktail-card">
+    <div className={`cocktail-card ${cardClassName}`}>
       <header className="cocktail-card__header">
         <div className="cocktail-card__header-inner-container">
           <h5 className="cocktail-card__name">{name}</h5>
