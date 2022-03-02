@@ -14,11 +14,28 @@ $menuWidth: 25px;
     width: $menuWidth;
     height: 2px;
     background-color: getColor("pr-prl-5");
+    transition: all 0.6s ease-in-out;
     @include borderRadius1;
     @include boxShadow1;
 
     &:not(:last-child) {
       margin-bottom: getMargin(400);
+    }
+  }
+
+  &_open {
+    .burger-menu__item {
+      &:first-child {
+        transform: translateY(calc(getMargin(400) + 2px)) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:last-child {
+        transform: translateY(calc(-1 * getMargin(400) - 2px)) rotate(-45deg);
+      }
     }
   }
 }
