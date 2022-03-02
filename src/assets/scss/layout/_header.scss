@@ -23,6 +23,11 @@
       flex-direction: column;
       border-top: 1px solid getColor("pr-prl-10");
       @include boxShadow4;
+
+      @include sm {
+        border-top: none;
+        box-shadow: none;
+      }
     }
 
     &-link {

@@ -1,4 +1,42 @@
 @use "../../abstracts/" as *;
 
 .slider {
+  position: relative;
+  margin-bottom: getMargin(1000);
+  grid-column: 1/-1;
+  background-color: #fff;
+  overflow: hidden;
+  @include borderRadius1;
+  @include boxShadow3;
+  cursor: grab;
+
+  min-height: 500px;
+  background: rgba(0, 0, 0, 0.7);
+
+  .swiper {
+    &-pagination-bullets {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: getMargin(200);
+    }
+
+    &-pagination-bullet {
+      width: 6px;
+      height: 6px;
+      background-color: #fff;
+      border-radius: 50%;
+
+      &-active {
+        width: 8px;
+        height: 8px;
+        background-color: getColor("pr-prl-5");
+        box-shadow: inset 0 0 3px #fff;
+      }
+    }
+  }
 }
