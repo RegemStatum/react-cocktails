@@ -20,19 +20,28 @@
 
   &__label-like-container {
     display: flex;
+    align-items: center;
+    gap: getMargin(600);
+    margin-left: auto;
   }
 
   &__label-container {
     &_alcoholic {
       background-color: getColor("sp-ble-9");
     }
+
+    &_non-alcoholic {
+      background-color: getColor("pr-tel-9");
+    }
   }
 
   &__label {
-    // padding;
-
     &_alcoholic {
       color: getColor("sp-ble-1");
+    }
+
+    &_non-alcoholic {
+      color: getColor("pr-tel-1");
     }
   }
 
@@ -52,5 +61,32 @@
 
   &__ingredients {
     padding: getPadding(1200) getPadding(1000);
+  }
+
+  &__ingredient-title {
+    margin-bottom: getMargin(200);
+    font-weight: 600;
+    color: getColor("nt-3");
+    @include text(300);
+
+    @include md {
+      @include text(400);
+    }
+  }
+
+  &__ingredient {
+    font-weight: 400;
+    color: getColor("nt-4");
+    @include text(300);
+
+    @include md {
+      @include text(400);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 182px;
+    object-fit: cover;
   }
 }

@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import CocktailCard from "../components/CocktailCard";
 import { HeroInfo, Pros, Slider, SubscribeForm } from "../components/index";
-import cocktailImg from "../assets/images/DefaultCocktail.png";
+import cocktailImg from "../assets/images/DefaultCocktail.jpg";
 
 const cocktailObj = {
   name: "Whiskey Cola",
-  isAlcoholic: true,
+  isAlcoholic: false,
   ingredientsArr: [
     "2 ounces whiskey",
     "Coca-Cola, chilled, to top (4 to 6 ounces, to taste)",
