@@ -17,6 +17,10 @@ const Header: FC = () => {
   const [linksHeight, setLinksHeight] = useState(0);
   const linksContainer = useRef<HTMLDivElement>(null);
 
+  const closeMenu = () => {
+    setIsNavOpen(false);
+  };
+
   const styles = {
     openMenu: {
       height: linksHeight,
@@ -67,6 +71,7 @@ const Header: FC = () => {
                 to={link.to}
                 className={`nav__link header__nav-link`}
                 key={link.id}
+                onClick={closeMenu}
               >
                 {link.name}
               </Link>

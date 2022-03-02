@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import InfoLabel from "../InfoLabel";
 
@@ -6,12 +6,13 @@ const SubscribeForm: FC = () => {
   const [state, handleSubmit] = useForm("myyojeer");
   const [emailInput, setEmailInput] = useState("");
   const [isLabelShown, setIsLabelShown] = useState(false);
+  const emailInputRef = useRef<HTMLInputElement>(null);
 
+  // submitting
   useEffect(() => {
-    setIsLabelShown(true);
-
-    if (state.submitting) {
+    if (state.succeeded && !state.submitting && state.errors.length === 0) {
       setEmailInput("");
+      setIsLabelShown(true);
     }
 
     const timer = setTimeout(() => {
@@ -21,7 +22,20 @@ const SubscribeForm: FC = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [state.submitting]);
+  }, [state.submitting, state.succeeded, state.errors]);
+
+  // change label position if there is some value in the input
+  useEffect(() => {
+    if (emailInput !== "") {
+      emailInputRef.current?.classList.add(
+        "subscribe-form__email-input_active"
+      );
+    } else {
+      emailInputRef.current?.classList.remove(
+        "subscribe-form__email-input_active"
+      );
+    }
+  }, [emailInput, emailInputRef]);
 
   return (
     <div className="subscribe-form">
@@ -37,6 +51,7 @@ const SubscribeForm: FC = () => {
             className="subscribe-form__email-input"
             value={emailInput}
             onChange={(e) => setEmailInput(e.target.value)}
+            ref={emailInputRef}
           />
           <label htmlFor="email" className="subscribe-form__email-label">
             Enter your email here
@@ -49,7 +64,15 @@ const SubscribeForm: FC = () => {
             textClassName="subscribe-form__succeed-text"
           />
         )}
-        <ValidationError prefix="Email" field="email" errors={state.errors} />
+        {state.submitting && (
+          <div className="loader subscribe-form__loader"></div>
+        )}
+        <ValidationError
+          prefix="Email"
+          field="email"
+          errors={state.errors}
+          className="subscribe-form__error"
+        />
         <button
           type="submit"
           disabled={state.submitting}

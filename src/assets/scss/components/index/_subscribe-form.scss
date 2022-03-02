@@ -57,7 +57,8 @@
   }
 
   &__email-input:focus + &__email-label,
-  &__email-input:not(:valid) + &__email-label {
+  &__email-input:not(:valid) + &__email-label,
+  &__email-input_active + &__email-label {
     top: -15px;
     background-color: #fff;
     border: 1px solid getColor("nt-4");
@@ -75,6 +76,27 @@
 
     &:hide {
       display: none;
+    }
+  }
+
+  &__loader {
+    margin-bottom: getMargin(400);
+  }
+
+  &__error {
+    display: flex;
+    width: max-content;
+    margin-bottom: getMargin(400);
+    padding: getPadding(100) getPadding(400);
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    background-color: getColor("sp-red-9");
+    color: getColor("sp-red-1");
+    @include text(200);
+    @include borderRadius1;
+
+    @include md {
+      @include text(300);
     }
   }
 }
