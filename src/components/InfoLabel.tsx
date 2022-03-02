@@ -2,8 +2,8 @@ import React, { FC } from "react";
 
 interface InfoLabelProps {
   text: string;
-  containerClassName: string;
-  textClassName: string;
+  containerClassName?: string;
+  textClassName?: string;
 }
 
 const InfoLabel: FC<InfoLabelProps> = ({

@@ -1,13 +1,25 @@
 import React, { FC } from "react";
 import CocktailCard from "../components/CocktailCard";
 import { HeroInfo, Pros, Slider, SubscribeForm } from "../components/index";
+import cocktailImg from "../assets/images/DefaultCocktail.png";
+
+const cocktailObj = {
+  name: "Whiskey Cola",
+  isAlcoholic: true,
+  ingredientsArr: [
+    "2 ounces whiskey",
+    "Coca-Cola, chilled, to top (4 to 6 ounces, to taste)",
+    "Garnish: lemon twist (optional)",
+  ],
+  image: cocktailImg,
+};
 
 const Home: FC = () => {
   return (
     <div className="home-page container">
       <HeroInfo />
       <Pros />
-      <CocktailCard />
+      <CocktailCard {...cocktailObj} />
       <Slider />
       <SubscribeForm />
     </div>

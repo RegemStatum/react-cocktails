@@ -1,0 +1,20 @@
+@use "../abstracts/" as *;
+
+.cocktail-card {
+  margin-bottom: getMargin(1000);
+  grid-column: 1/-1;
+  background-color: #fff;
+  overflow: hidden;
+  @include borderRadius1;
+  @include boxShadow3;
+
+  &__header {
+    background-color: getColor("pr-prl-10");
+
+    &-inner-container {
+      display: flex;
+      align-items: center;
+      padding: getPadding(1000);
+    }
+  }
+}

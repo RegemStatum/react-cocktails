@@ -1,6 +1,7 @@
 @use "../../abstracts/" as *;
 
 .pros {
+  margin-bottom: getMargin(1000);
   grid-column: 1/-1;
   background-color: #fff;
   overflow: hidden;

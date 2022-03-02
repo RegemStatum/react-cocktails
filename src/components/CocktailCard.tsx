@@ -1,4 +1,6 @@
 import React, { FC } from "react";
+import InfoLabel from "./InfoLabel";
+import likeBtn from "../assets/images/likeBtn.svg";
 
 interface CocktailCardProps {
   name: string;
@@ -15,14 +17,19 @@ const CocktailCard: FC<CocktailCardProps> = ({
 }) => {
   return (
     <div className="cocktail-card">
-      {/* develop this */}
-      <header className="cocktail-card__header-container">
-        <div className="cocktail-card__header">
-          <p className="coctail-card__name">{name}</p>
-          <div className="cocktail-card__label"></div>
+      <header className="cocktail-card__header">
+        <div className="cocktail-card__header-inner-container">
+          <h5 className="cocktail-card__name">{name}</h5>
+          {isAlcoholic && (
+            <InfoLabel
+              text="alcoholic"
+              containerClassName="cocktail-card__label-container"
+              textClassName="cocktail-card__label"
+            />
+          )}
+          <img src={likeBtn} alt="like" className="cocktail-card__like-btn" />
         </div>
       </header>
-      {/* end develop this */}
       <div className="cocktail-card__ingredients">
         {ingredientsArr.map((ingredient, index) => (
           <div className="cocktail-card__ingredient" key={index}>
@@ -30,7 +37,11 @@ const CocktailCard: FC<CocktailCardProps> = ({
           </div>
         ))}
       </div>
-      <img src={image} alt={`cocktail-${name}`} />
+      <img
+        src={image}
+        alt={`cocktail-${name}`}
+        className="cocktail-card__image"
+      />
     </div>
   );
 };
