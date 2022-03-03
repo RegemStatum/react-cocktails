@@ -107,7 +107,7 @@
     height: max-content;
     grid-column: 1/5;
     grid-row: 2;
-    margin-right: getMargin(800);
-    margin-top: calc(-1 * getMarin(1200));
+    margin-right: getMargin(400);
+    margin-top: calc(242px + getMargin(800));
   }
 }

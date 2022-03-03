@@ -13,6 +13,8 @@
 
   @include xmd {
     grid-column: 5/-1;
-    grid-row: 3;
+    grid-row: 2;
+    margin-top: calc(422px + getMargin(300));
+    margin-left: getMargin(400);
   }
 }

@@ -13,9 +13,13 @@
     margin-right: getMargin(1200);
   }
 
+  @include xmd {
+    grid-auto-flow: column dense;
+  }
+
   @include md {
+    max-width: 850px;
     width: calc(100% - 4rem);
-    margin-left: getMargin(1200);
-    margin-right: getMargin(1200);
+    margin: 0 auto;
   }
 }

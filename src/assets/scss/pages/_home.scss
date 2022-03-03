@@ -4,6 +4,8 @@
   &__cocktail-card {
     @include xmd {
       grid-column: 5/-1;
+      grid-row: 2;
+      margin-left: getMargin(400);
     }
   }
 }
