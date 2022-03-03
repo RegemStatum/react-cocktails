@@ -1,8 +1,7 @@
 const navLinks = [
   { name: "Home", to: "/", id: 1 },
-  { name: "About", to: "/about", id: 2 },
-  { name: "Cocktails", to: "/cocktails", id: 3 },
-  { name: "Favourites", to: "/favourites", id: 4 },
+  { name: "Cocktails", to: "/cocktails", id: 2 },
+  { name: "Favourites", to: "/favourites", id: 3 },
 ];
 
 export default navLinks;

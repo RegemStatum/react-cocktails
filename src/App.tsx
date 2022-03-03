@@ -9,7 +9,6 @@ import Footer from "./components/layout/Footer";
 // pages
 import {
   Home,
-  About,
   Cocktails,
   FavouriteCocktails,
   SingleCocktail,
@@ -22,7 +21,6 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
         <Route path="/cocktails" element={<Cocktails />}></Route>
         <Route
           path="/cocktails/:cocktailId"
