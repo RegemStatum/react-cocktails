@@ -1,21 +1,15 @@
 import React, { FC } from "react";
 import InfoLabel from "./InfoLabel";
 import likeBtn from "../assets/images/likeBtn.svg";
+import cocktailCard from "../types/cocktail";
 
-interface CocktailCardProps {
-  name: string;
-  isAlcoholic: boolean;
-  ingredientsArr: Array<string>;
-  image: string;
-  cardClassName?: string;
-}
-
-const CocktailCard: FC<CocktailCardProps> = ({
+const CocktailCard: FC<cocktailCard> = ({
   name,
   isAlcoholic,
   ingredientsArr,
   image,
   cardClassName = "",
+  id = "myDefaultCocktail",
 }) => {
   return (
     <div className={`cocktail-card ${cardClassName}`}>
