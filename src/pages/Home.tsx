@@ -25,7 +25,11 @@ const Home: FC = () => {
     <div className="home-page container">
       <HeroInfo />
       <Pros />
-      <CocktailCard {...cocktailObj} cardClassName="home-page__cocktail-card" />
+      <CocktailCard
+        {...cocktailObj}
+        cardClassName="home-page__cocktail-card"
+        id="myDefaultCocktail"
+      />
       <MoreCocktailsBtn />
       <Slider />
       <SubscribeForm />
