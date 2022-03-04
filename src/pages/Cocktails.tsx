@@ -1,14 +1,16 @@
 import React, { FC, useEffect, useState } from "react";
-import CocktailCard from "../components/CocktailCard";
+import CocktailCards from "../components/cocktails/CocktailCards";
+import SearchCocktail from "../components/cocktails/SearchCocktail";
 import cocktailCard from "../types/cocktailCard";
 
 const Cocktails: FC = () => {
+  const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
   const [cocktails, setCocktails] = useState<Array<cocktailCard>>([]);
+  const [cocktailName, setCocktailName] = useState("");
 
-  const fetchCocktails = async () => {
-    const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
+  const fetchCocktails = async (query: string) => {
     try {
-      const response = await fetch(url);
+      const response = await fetch(query);
       let data = await response.json();
       data = data.drinks.map((item: any) => {
         const {
@@ -43,8 +45,13 @@ const Cocktails: FC = () => {
   };
 
   useEffect(() => {
-    fetchCocktails();
-  }, []);
+    fetchCocktails(URL + cocktailName);
+  }, [cocktailName]);
+
+  const handleSearch = (e: React.SyntheticEvent) => {
+    const target = e.target as HTMLInputElement;
+    setCocktailName(target.value);
+  };
 
   if (cocktails.length === 0) {
     return (
@@ -56,14 +63,9 @@ const Cocktails: FC = () => {
 
   return (
     <div className="cocktails-page">
+      <SearchCocktail cocktailName={cocktailName} handleSearch={handleSearch} />
       <div className=" container cocktails-page__container">
-        {cocktails.map((cocktail) => (
-          <CocktailCard
-            {...cocktail}
-            key={cocktail.id}
-            cardClassName="cocktails-page__cocktail-card"
-          />
-        ))}
+        <CocktailCards cocktails={cocktails} />
       </div>
     </div>
   );
