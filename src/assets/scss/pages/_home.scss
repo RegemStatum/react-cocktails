@@ -2,6 +2,8 @@
 
 .home-page {
   &__cocktail-card {
+    max-height: 422px;
+
     @include xmd {
       grid-column: 5/-1;
       grid-row: 2;

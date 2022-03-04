@@ -1,7 +1,9 @@
 @use "../abstracts/" as *;
 
 .cocktail-card {
-  max-height: 422px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-bottom: getMargin(1000);
   grid-column: 1/-1;
   background-color: #fff;
@@ -61,6 +63,7 @@
   }
 
   &__ingredients {
+    margin-bottom: auto;
     padding: getPadding(1200) getPadding(1000);
   }
 
@@ -89,5 +92,6 @@
     width: 100%;
     height: 182px;
     object-fit: cover;
+    align-self: flex-end;
   }
 }

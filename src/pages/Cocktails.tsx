@@ -48,9 +48,15 @@ const Cocktails: FC = () => {
 
   return (
     <div className="cocktails-page">
-      {cocktails.map((cocktail) => (
-        <CocktailCard {...cocktail} key={cocktail.id} />
-      ))}
+      <div className=" container cocktails-page__container">
+        {cocktails.map((cocktail) => (
+          <CocktailCard
+            {...cocktail}
+            key={cocktail.id}
+            cardClassName="cocktails-page__cocktail-card"
+          />
+        ))}
+      </div>
     </div>
   );
 };
