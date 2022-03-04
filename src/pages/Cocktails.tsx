@@ -46,6 +46,14 @@ const Cocktails: FC = () => {
     fetchCocktails();
   }, []);
 
+  if (cocktails.length === 0) {
+    return (
+      <div className="cocktails-page page-min-height container">
+        <div className="big-loader cocktails-page__big-loader"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="cocktails-page">
       <div className=" container cocktails-page__container">

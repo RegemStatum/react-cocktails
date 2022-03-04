@@ -1,0 +1,5 @@
+@use "../abstracts/" as *;
+
+.page-min-height {
+  min-height: calc(100vh - 95px - 132px);
+}
