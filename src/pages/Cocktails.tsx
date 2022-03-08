@@ -63,8 +63,13 @@ const Cocktails: FC = () => {
 
   return (
     <div className="cocktails-page">
-      <SearchCocktail cocktailName={cocktailName} handleSearch={handleSearch} />
-      <div className=" container cocktails-page__container">
+      <div className="container">
+        <SearchCocktail
+          cocktailName={cocktailName}
+          handleSearch={handleSearch}
+        />
+      </div>
+      <div className="container cocktails-page__container">
         <CocktailCards cocktails={cocktails} />
       </div>
     </div>

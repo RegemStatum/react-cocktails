@@ -1,0 +1,41 @@
+@use "../../abstracts/" as *;
+
+.input-container {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  margin-bottom: getMargin(400);
+  padding: getPadding(800);
+  font-family: "Open Sans", sans-serif;
+  background-color: getColor("nt-10");
+  @include text(300);
+  @include borderRadius1;
+
+  &:focus {
+    outline-color: getColor("nt-4");
+    outline: none;
+  }
+}
+
+.label {
+  position: absolute;
+  left: getPadding(800);
+  top: getPadding(800);
+  padding: getPadding(100) getPadding(300);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: getColor("nt-4");
+  transition: top 50ms linear;
+  @include text(200);
+  @include borderRadius1;
+}
+
+.input:focus + .label,
+.input:not(:valid) + .label,
+.input_active + .label {
+  top: -15px;
+  background-color: #fff;
+  border: 1px solid getColor("nt-4");
+}

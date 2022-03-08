@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+
+.search-cocktail {
+  grid-column: 1/-1;
+  margin-top: getMargin(600);
+  margin-bottom: getMargin(1000);
+
+  &__input {
+    @include boxShadow4;
+  }
+
+  @include xmd {
+    margin-top: getMargin(1200);
+    margin-bottom: getMargin(1600);
+
+    &__input-container {
+      max-width: 19rem;
+      margin: 0 auto;
+    }
+  }
+}

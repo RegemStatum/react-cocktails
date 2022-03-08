@@ -27,13 +27,9 @@ const SubscribeForm: FC = () => {
   // change label position if there is some value in the input
   useEffect(() => {
     if (emailInput !== "") {
-      emailInputRef.current?.classList.add(
-        "subscribe-form__email-input_active"
-      );
+      emailInputRef.current?.classList.add("input_active");
     } else {
-      emailInputRef.current?.classList.remove(
-        "subscribe-form__email-input_active"
-      );
+      emailInputRef.current?.classList.remove("input_active");
     }
   }, [emailInput, emailInputRef]);
 
@@ -43,17 +39,17 @@ const SubscribeForm: FC = () => {
         Free top cocktails list every weekend
       </h3>
       <form onSubmit={handleSubmit} className="subscribe-form__form">
-        <div className="subscribe-form__input-container">
+        <div className="input-container">
           <input
             id="email"
             type="email"
             name="email"
-            className="subscribe-form__email-input"
+            className="input"
             value={emailInput}
             onChange={(e) => setEmailInput(e.target.value)}
             ref={emailInputRef}
           />
-          <label htmlFor="email" className="subscribe-form__email-label">
+          <label htmlFor="email" className="label">
             Enter your email here
           </label>
         </div>
