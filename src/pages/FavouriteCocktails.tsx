@@ -6,7 +6,7 @@ const FavouriteCocktails: FC = () => {
   const { favourites: cocktails } = useAppContext();
 
   return (
-    <div className="container favourites-page page-min-height">
+    <div className="container cocktails-page__container favourites-page  page-min-height">
       {cocktails.map((cocktail) => (
         <CocktailCard
           {...cocktail}

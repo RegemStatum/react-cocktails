@@ -13,25 +13,45 @@ const defaultContextValue: DefaultContextValue = {
   removeFromFavourites: () => {},
 };
 
+interface StorageObj {
+  favourites: Array<cocktailCard>;
+}
+
 const appContext = React.createContext(defaultContextValue);
 
 const getFavouritesFromStorage = () => {
-  const favourites = localStorage.getItem("cocktails");
-  console.log(favourites);
+  const cocktailsStorageObj = localStorage.getItem("cocktails");
+  let favourites = [];
+
+  if (cocktailsStorageObj) {
+    favourites = JSON.parse(cocktailsStorageObj).favourites;
+  }
+  return favourites;
 };
 
 const AppProvider: FC = ({ children }) => {
-  const [favourites, setFavourites] = useState<cocktailCard[]>([]);
+  const [favourites, setFavourites] = useState<cocktailCard[]>(
+    getFavouritesFromStorage()
+  );
+  const [storageObj, setStorageObj] = useState<StorageObj>({
+    favourites: getFavouritesFromStorage(),
+  });
+
+  const handleFavouritesChange = (newFavourites: cocktailCard[]) => {
+    const newStorageObj = { ...storageObj, favourites: newFavourites };
+    setFavourites(newFavourites);
+    setStorageObj(newStorageObj);
+    localStorage.setItem("cocktails", JSON.stringify(newStorageObj));
+  };
 
   const addToFavourites = (cocktail: cocktailCard) => {
-    setFavourites([...favourites, cocktail]);
-    console.log("add");
+    const newFavourites = [...favourites, cocktail];
+    handleFavouritesChange(newFavourites);
   };
 
   const removeFromFavourites = (id: string) => {
     const newFavourites = favourites.filter((cocktail) => cocktail.id !== id);
-    setFavourites(newFavourites);
-    console.log("remove");
+    handleFavouritesChange(newFavourites);
   };
 
   return (

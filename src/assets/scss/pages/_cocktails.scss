@@ -23,7 +23,7 @@
     }
   }
 
-  @include md {
+  @include lg {
     &__cocktail-card {
       margin-left: getMargin(400);
       margin-right: getMargin(400);
