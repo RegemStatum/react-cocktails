@@ -14,24 +14,27 @@ import {
   SingleCocktail,
   Error,
 } from "./pages";
+import { AppProvider } from "./context/AppProvider";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/cocktails" element={<Cocktails />}></Route>
-        <Route
-          path="/cocktails/:cocktailId"
-          element={<SingleCocktail />}
-        ></Route>
-        <Route path="/favourites" element={<FavouriteCocktails />}></Route>
+    <AppProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/cocktails" element={<Cocktails />}></Route>
+          <Route
+            path="/cocktails/:cocktailId"
+            element={<SingleCocktail />}
+          ></Route>
+          <Route path="/favourites" element={<FavouriteCocktails />}></Route>
 
-        <Route path="*" element={<Error />}></Route>
-      </Routes>
-      <Footer />
-    </Router>
+          <Route path="*" element={<Error />}></Route>
+        </Routes>
+        <Footer />
+      </Router>
+    </AppProvider>
   );
 }
 

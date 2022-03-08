@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import InfoLabel from "./InfoLabel";
 import likeBtn from "../assets/images/likeBtn.svg";
 import cocktailCard from "../types/cocktailCard";
+import { useAppContext } from "../context/AppProvider";
 
 interface CocktailCardProps extends cocktailCard {
   cardClassName?: string;
@@ -15,6 +16,21 @@ const CocktailCard: FC<CocktailCardProps> = ({
   cardClassName = "",
   id,
 }) => {
+  const { addToFavourites, removeFromFavourites, favourites } = useAppContext();
+
+  const handleLikeClick = () => {
+    const isFavourite =
+      favourites.findIndex((cocktail) => cocktail.id === id) === -1
+        ? false
+        : true;
+
+    if (!isFavourite) {
+      addToFavourites({ name, isAlcoholic, ingredientsArr, image, id });
+    } else {
+      removeFromFavourites(id);
+    }
+  };
+
   return (
     <div className={`cocktail-card ${cardClassName}`} key={id}>
       <header className="cocktail-card__header">
@@ -34,7 +50,12 @@ const CocktailCard: FC<CocktailCardProps> = ({
                   : "cocktail-card__label_non-alcoholic"
               }`}
             />
-            <img src={likeBtn} alt="like" className="cocktail-card__like-btn" />
+            <img
+              src={likeBtn}
+              alt="like"
+              className="cocktail-card__like-btn"
+              onClick={handleLikeClick}
+            />
           </div>
         </div>
       </header>
