@@ -51,9 +51,11 @@
   &__like-btn {
     width: 17px;
     height: 15px;
+    cursor: pointer;
 
     &_liked {
-      background-color: red;
+      filter: invert(20%) sepia(86%) saturate(1445%) hue-rotate(351deg)
+        brightness(92%) contrast(100%);
     }
   }
 
