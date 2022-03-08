@@ -22,7 +22,12 @@ const SearchCocktail: FC<SearchCocktailProps> = ({
 
   return (
     <div className="search-cocktail">
-      <form className="search-cocktail__form">
+      <form
+        className="search-cocktail__form"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <div className="search-cocktail__input-container input-container">
           <input
             type="text"
