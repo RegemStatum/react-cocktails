@@ -2,11 +2,13 @@ import React, { FC, useEffect, useState } from "react";
 import CocktailCards from "../components/cocktails/CocktailCards";
 import SearchCocktail from "../components/cocktails/SearchCocktail";
 import cocktailCard from "../types/cocktailCard";
+import { useAppContext } from "../context/AppProvider";
 
 const Cocktails: FC = () => {
   const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
   const [cocktails, setCocktails] = useState<Array<cocktailCard>>([]);
   const [cocktailName, setCocktailName] = useState("");
+  const { favourites, checkIsCocktailLiked } = useAppContext();
 
   const fetchCocktails = async (query: string) => {
     try {
@@ -36,8 +38,12 @@ const Cocktails: FC = () => {
         ingredientsArr = ingredientsArr.filter(
           (ingredient) => ingredient !== null
         );
-        return { name, isAlcoholic, ingredientsArr, image, id };
+
+        const isLiked = checkIsCocktailLiked(id);
+
+        return { name, isAlcoholic, ingredientsArr, image, id, isLiked };
       });
+
       setCocktails(data);
     } catch (e) {
       console.log(e);

@@ -5,12 +5,14 @@ interface DefaultContextValue {
   favourites: cocktailCard[];
   addToFavourites: (cocktail: cocktailCard) => void;
   removeFromFavourites: (id: string) => void;
+  checkIsCocktailLiked: (id: string) => boolean;
 }
 
 const defaultContextValue: DefaultContextValue = {
   favourites: [],
   addToFavourites: () => {},
   removeFromFavourites: () => {},
+  checkIsCocktailLiked: () => false,
 };
 
 interface StorageObj {
@@ -54,9 +56,20 @@ const AppProvider: FC = ({ children }) => {
     handleFavouritesChange(newFavourites);
   };
 
+  const checkIsCocktailLiked = (id: string) => {
+    return favourites.findIndex((cocktail) => cocktail.id === id) === -1
+      ? false
+      : true;
+  };
+
   return (
     <appContext.Provider
-      value={{ favourites, addToFavourites, removeFromFavourites }}
+      value={{
+        favourites,
+        addToFavourites,
+        removeFromFavourites,
+        checkIsCocktailLiked,
+      }}
     >
       {children}
     </appContext.Provider>

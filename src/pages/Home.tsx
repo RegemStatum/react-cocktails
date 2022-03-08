@@ -8,6 +8,7 @@ import {
   SubscribeForm,
 } from "../components/index";
 import cocktailImg from "../assets/images/DefaultCocktail.jpg";
+import { useAppContext } from "../context/AppProvider";
 
 const cocktailObj = {
   name: "Whiskey Cola",
@@ -21,6 +22,9 @@ const cocktailObj = {
 };
 
 const Home: FC = () => {
+  const { checkIsCocktailLiked } = useAppContext();
+  const cardId = "myDefaultCocktail";
+
   return (
     <div className="home-page container">
       <HeroInfo />
@@ -28,7 +32,8 @@ const Home: FC = () => {
       <CocktailCard
         {...cocktailObj}
         cardClassName="home-page__cocktail-card"
-        id="myDefaultCocktail"
+        id={cardId}
+        isLiked={checkIsCocktailLiked(cardId)}
       />
       <MoreCocktailsBtn />
       <Slider />

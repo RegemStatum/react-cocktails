@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import InfoLabel from "./InfoLabel";
 import likeBtn from "../assets/images/likeBtn.svg";
 import cocktailCard from "../types/cocktailCard";
@@ -15,17 +15,26 @@ const CocktailCard: FC<CocktailCardProps> = ({
   image,
   cardClassName = "",
   id,
+  isLiked,
 }) => {
-  const { addToFavourites, removeFromFavourites, favourites } = useAppContext();
+  const [isLikedCur, setIsLikedCur] = useState(isLiked);
+
+  const { addToFavourites, removeFromFavourites, checkIsCocktailLiked } =
+    useAppContext();
 
   const handleLikeClick = () => {
-    const isFavourite =
-      favourites.findIndex((cocktail) => cocktail.id === id) === -1
-        ? false
-        : true;
+    const isLiked = checkIsCocktailLiked(id);
+    setIsLikedCur(!isLiked);
 
-    if (!isFavourite) {
-      addToFavourites({ name, isAlcoholic, ingredientsArr, image, id });
+    if (!isLiked) {
+      addToFavourites({
+        name,
+        isAlcoholic,
+        ingredientsArr,
+        image,
+        id,
+        isLiked,
+      });
     } else {
       removeFromFavourites(id);
     }
@@ -53,7 +62,9 @@ const CocktailCard: FC<CocktailCardProps> = ({
             <img
               src={likeBtn}
               alt="like"
-              className="cocktail-card__like-btn"
+              className={`cocktail-card__like-btn ${
+                isLikedCur ? "cocktail-card__like-btn_liked" : ""
+              }`}
               onClick={handleLikeClick}
             />
           </div>

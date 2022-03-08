@@ -12,6 +12,7 @@ const FavouriteCocktails: FC = () => {
           {...cocktail}
           key={cocktail.id}
           cardClassName="cocktails-page__cocktail-card"
+          isLiked={true}
         />
       ))}
     </div>

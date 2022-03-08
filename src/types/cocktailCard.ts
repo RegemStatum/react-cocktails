@@ -4,6 +4,7 @@ interface cocktailCard {
   ingredientsArr: Array<string>;
   image: string;
   id: string;
+  isLiked: boolean;
 }
 
 export default cocktailCard;

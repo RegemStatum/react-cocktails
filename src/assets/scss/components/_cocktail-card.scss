@@ -51,6 +51,10 @@
   &__like-btn {
     width: 17px;
     height: 15px;
+
+    &_liked {
+      background-color: red;
+    }
   }
 
   &__name {
